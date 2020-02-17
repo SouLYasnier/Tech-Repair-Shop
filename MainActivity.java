@@ -1,10 +1,13 @@
-package com.example.tech_repair_shop;
+package com.example.techrepair;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,20 +17,24 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void selectDevice(View view)
-    {
-        if(view == findViewById(R.id.imageButton))
-        {
-            Intent moveToPhoneInfo = new Intent(this, DeviceInfo.class);
-            startActivity(moveToPhoneInfo);
-        }
-        if(view == findViewById(R.id.imageButton2))
-        {
+    public void nextScreenPhone(View view) {
+        Intent moveToNextActivity = new Intent(this, CustomerInfo.class);
+        moveToNextActivity.putExtra("dType", "SmartPhone");
+        startActivity(moveToNextActivity);
 
-        }
-        if(view == findViewById(R.id.imageButton3))
-        {
+    }
 
-        }
+    public void nextScreenPC(View view) {
+        Intent moveToNextActivity = new Intent(this, CustomerInfo.class);
+        moveToNextActivity.putExtra("dType", "PC/Laptop");
+        startActivity(moveToNextActivity);
+
+    }
+
+    public void nextScreenTablet(View view) {
+        Intent moveToNextActivity = new Intent(this, CustomerInfo.class);
+        moveToNextActivity.putExtra("dType", "Tablet");
+        startActivity(moveToNextActivity);
+
     }
 }
